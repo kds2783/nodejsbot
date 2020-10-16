@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = 'NzY2NzM2MDE5NzEzNDI1NDI5.X4nskA.xGBlLdfyo3ZBYktGxSg0mfx0XBc';
+const token = 'NzY2NzM2MDE5NzEzNDI1NDI5.X4nskA.qY1o5SNCOnmr_k15NtsZqjPoETQ';
 const welcomeChannelName = "〔📛〕ㅣ입장로그";
 const byeChannelName = "〔📛〕ㅣ입장로그";
 const welcomeChannelComment = "``` 님께서 입장하셨습니다. ```";
