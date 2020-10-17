@@ -86,6 +86,24 @@ client.on('message', (message) => {
       .setTimestamp()
       .setFooter('From 카카오', img)
 
+      if message.content.startswith('!영화순위'):
+      # http://ticket2.movie.daum.net/movie/movieranklist.aspx
+      i1 = 0 # 랭킹 string값
+      embed = discord.Embed(
+          title = "영화순위",
+          description = "영화순위입니다.",
+          colour= discord.Color.red()
+      )
+      hdr = {'User-Agent': 'Mozilla/5.0'}
+      url = 'http://ticket2.movie.daum.net/movie/movieranklist.aspx'
+      print(url)
+      req = Request(url, headers=hdr)
+      html = urllib.request.urlopen(req)
+      bsObj = bs4.BeautifulSoup(html, "html.parser")
+      moviechartBase = bsObj.find('div', {'class': 'main_detail'})
+      moviechart1 = moviechartBase.find('ul', {'class': 'list_boxthumb'})
+      moviechart2 = moviechart1.find_all('li')
+
     message.channel.send(embed)
   } else if(message.content == '*어몽어스') {
     let helpImg = 'https://cdn.discordapp.com/attachments/766809569547911179/766813161642131487/phpGkUsnS.gif'
@@ -240,5 +258,6 @@ async function AutoMsgDelete(message, str, delay = 3000) {
     msg.delete();
   }, delay);
 }
+
 
 client.login(token);
