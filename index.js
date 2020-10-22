@@ -3,14 +3,14 @@ const client = new Discord.Client();
 const token = process.env.token
 const moment = require("moment");
 require("moment-duration-format");
-const welcomeChannelName = "〔📛〕ㅣ입장로그";
-const byeChannelName = "〔📛〕ㅣ입장로그";
+const welcomeChannelName = "👑ㅣ입장퇴장방";
+const byeChannelName = "👑ㅣ입장퇴장방";
 const welcomeChannelComment = "``` 님께서 입장하셨습니다. ```";
 const byeChannelComment = "``` 님께서 퇴장하셨습니다. ```";
 
 client.on('ready', () => {
-  console.log('[ 어몽어스 ] 실행되었습니다.');
-  client.user.setPresence({ game: { name: '✨ 어몽어스 지킴이 🌙' }, status: 'online' })
+  console.log('[ 우리의로봇 ] 실행되었습니다.');
+  client.user.setPresence({ game: { name: '✨ 우리의 지킴이 🌙' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -43,8 +43,8 @@ client.on('message', (message) => {
     let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
     embed.setColor('#186de6')
-    embed.setAuthor('server info of 어몽어스 BOT', img)
-    embed.setFooter(`어몽어스 BOT ❤️`)
+    embed.setAuthor('server info of 우리의로봇 BOT', img)
+    embed.setFooter(`우리의로봇 BOT ❤️`)
     embed.addBlankField()
     embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
     embed.addField('running time', `${duration}`, true);
@@ -74,7 +74,7 @@ client.on('message', (message) => {
     let embed = new Discord.RichEmbed()
       .setTitle('봇의정보')
       .setURL('http://www.naver.com')
-      .setAuthor('어몽어스', img, 'http://www.naver.com')
+      .setAuthor('우리의로봇', img, 'http://www.naver.com')
       .setThumbnail(img)
       .addBlankField()
       .addField('Inline field title', 'Some value here')
@@ -87,7 +87,7 @@ client.on('message', (message) => {
       .setFooter('From 카카오', img)
 
     message.channel.send(embed)
-  } else if(message.content == '*어몽어스') {
+  } else if(message.content == '*우리의로봇') {
     let helpImg = 'https://cdn.discordapp.com/attachments/766809569547911179/766813161642131487/phpGkUsnS.gif'
     let commandList = [
       {name: '*어몽어스', desc: '도움말'},
@@ -101,9 +101,9 @@ client.on('message', (message) => {
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
-      .setAuthor('Help of 어몽어스 BOT', helpImg)
+      .setAuthor('Help of 우리의로봇 BOT', helpImg)
       .setColor('#186de6')
-      .setFooter(`어몽어스 BOT ❤️`)
+      .setFooter(`우리의로봇 BOT ❤️`)
       .setTimestamp()
     
     commandList.forEach(x => {
@@ -143,9 +143,9 @@ client.on('message', (message) => {
     if(message.member != null) { // 채널에서 공지 쓸 때
       let contents = message.content.slice('*전체공지2'.length);
       let embed = new Discord.RichEmbed()
-        .setAuthor('공지 of 어몽어스 BOT')
+        .setAuthor('공지 of 우리의로봇 BOT')
         .setColor('#186de6')
-        .setFooter(`어몽어스 BOT ❤️`)
+        .setFooter(`우리의로봇 BOT ❤️`)
         .setTimestamp()
   
       embed.addField('공지: ', contents);
